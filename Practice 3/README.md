@@ -15,8 +15,7 @@ Complete this section to achieve the core learning objectives ROS2 Publishers.
 
    - [3B.1: Creating a Turtlebot3 Teleoperation Module](#3b1-creating-a-turtlebot3-teleoperation-module)
    - [3B.2: Verification of Turtlebot3 Teleoperation Module](#3b2-verification-of-turtlebot3-teleoperation-module)
-   - [3B.3: Controlling a Simulated Turtlebot3](#3b3-controlling-a-simulated-turtlebot3)
-   - [3B.4: Controlling a Physical Turtlebot3](#3b4-controlling-a-physical-turtlebot3)
+   - [3B.3: Controlling a Physical Turtlebot3](#3b3-controlling-a-physical-turtlebot3)
 
 ## Learning Outcomes
 
@@ -26,7 +25,7 @@ By the end of this exercise, you will be able to:
 - Create and configure a simple ROS 2 publisher node in Python.
 - Publish messages to a topic and verify communication using ROS 2 CLI tools.
 - Monitor topic activity and debug message flow in a ROS 2 system.
-- Apply publisher concepts in real-world scenarios, such as controlling a TurtleBot3 in both simulation and physical environments.
+- Apply publisher concepts in real-world scenarios, such as controlling a physical TurtleBot3.
 
 You will be using a **ROS2 Publisher** to publish some messages to the topic named `/cmd_vel`, which is used to control the actual turtlebot hardware.
 
@@ -147,7 +146,7 @@ data: Sent from my_example_node 17
 
 Now that we know how to create a ROS 2 publisher, let's use that knowledge to build a TurtleBot3 teleoperation module. This module will allow us to publish velocity commands to the robot, enabling basic keyboard-controlled movement by sending messages to the appropriate topic `/cmd_vel`. This is a practical example of how publishers are used to control robots in ROS 2.
 
-In this exercise, you will be able to create a package that allows you to control a simulated and physical Turtlebot with your keyboard. 
+In this exercise, you will be able to create a package that allows you to control a physical Turtlebot with your keyboard. 
 
 The method to control the turtlebot should behave as follows:
 
@@ -337,20 +336,7 @@ When you press the keys:
 - **D**: Decreases angular.z by 0.1 — the robot turns more sharply to the right.
 - **S**: Sets both linear.x and angular.z to 0.0 — the robot stops moving.
 
-## 3B.3: Controlling a Simulated Turtlebot3
-
-1. To check if your solution works in robot simulation, open a **new** terminal and run the following:
-
-```bash
-export TURTLEBOT3_MODEL=burger
-cd ~/ros2basics_ws
-source install/setup.bash
-ros2 launch turtlebot3_gazebo empty_world.launch.py
-```
-
-2. Control the simulated Turtlebot3 using WASD keys and watch the Turtlebot3 move!
-
-## 3B.4: Controlling a Physical Turtlebot3
+## 3B.3: Controlling a Physical Turtlebot3
 
 1. Open a new terminal to bringup and initialise the Turtlebot3. the IP address is specific to TurtleBot3.
 
@@ -488,13 +474,4 @@ Warning!!!!!
 - Do not hold WASD button as Turtlebot3 will accelerate really fast! 
 
 5. Run your teleoperation module. Control the Physical Turtlebot3 using WASD keys and watch the Turtlebot3 move!
-
-## Troubleshooting
-
-1. When running the turtlebot simulation, it may fail to start because an instance of the Gazebo server is still running in the background (usually left over from a previous run that did not shut down cleanly).
-
-Solution: An instance of the gazebo server is still running somewhere. We need to kill it
-```bash
-killall -e gzserver
-```
 
