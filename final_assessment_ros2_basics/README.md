@@ -88,7 +88,19 @@ This can be represented in python below:
     def get_tag_angle(self, x, y):
         return np.arctan(y/x)
 ```
+### Note
+Please note that:
+1. The pose data we revcieve from the detection node will be in the camera_optical_frame (frame 1 in the picture below), so the x axis in the above pic will be z axis in the camera_optical_frame, and the y axis direction in the above pic will be negative x axis in the camera_optical_frame. 
 
+    *Hint: To not have your theta be opposite, either you modify the x_pos data recieved, or you modify the theta computed. To line up with the clock-wise and anti-clockwise expression in note 2.*
+
+2. The cmd_vel topic's data is based on the odom frame (frame 2 in the picture below), so when we say "Now I want the robot to turn towards the aruco marker." what we actually mean is "Now I want the robot to rotate around the z axis clockwise (negative angular vel) or anti-clockwise (positive angular vel) towards the aruco marker." 
+
+<img src="./images/frames.png" width=100% height=100%>
+<br>
+camera_optical_frame: z = forward, x = right, y = down
+
+odom_frame: z = up, x = forward, y = left
 
 <!-- 
 ## Final Assessment 1.1 - Detecting AR Tag ID and Pose Information
