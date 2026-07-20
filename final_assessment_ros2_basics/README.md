@@ -90,7 +90,7 @@ This can be represented in python below:
 ```
 ### Note
 Please note that:
-1. The pose data we revcieve from the detection node will be in the camera_optical_frame (frame 1 in the picture below), so the x axis in the above pic will be z axis in the camera_optical_frame, and the y axis direction in the above pic will be negative x axis in the camera_optical_frame. 
+1. The pose data we receive from the detection node will be in the camera_optical_frame (frame 1 in the picture below), so the x axis in the above pic will be z axis in the camera_optical_frame, and the y axis direction in the above pic will be negative x axis in the camera_optical_frame. 
 
     *Hint: To not have your theta be opposite, either you modify the x_pos data recieved, or you modify the theta computed. To line up with the clock-wise and anti-clockwise expression in note 2.*
 
